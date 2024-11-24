@@ -42,7 +42,9 @@
                 </td>
                 <td><img src="<?= $data['vehicule']->getPhoto() ?>" alt="Photo véhicule" width="100"></td>
                 <td>
+                <?php if( isset($_SESSION['user']) ): ?>
                     <a href="?action=ReserverVehicule&id=<?= $data['vehicule']->getIdVehicule() ?>" class="btn btn-outline-success">Louer</a>
+                <?php endif; ?>
                     <a href="?action=commentaire&id=<?= $data['vehicule']->getIdVehicule() ?>" class="btn btn-outline-success">Commentaires</a>
                 </td>
             </tr>

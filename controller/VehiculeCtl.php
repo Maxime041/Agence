@@ -11,12 +11,15 @@ class VehiculeCtl {
         if (isset($_GET['action'])) {
             $action = $_GET['action'];
 
-            if( !$this->isConnected())
+            if( !$this->isConnected() && !in_array($_GET['action'], ['reservation', 'commentaire']) )
             {
-                header('location: .');
+                header('location: .');  
                 exit;
             }
+
+
             switch ($action) {
+                
                 case "gestionVehicule":
                     if( !$this->isAdmin())
                     {

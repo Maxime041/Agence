@@ -9,6 +9,7 @@
 <body>
 
     <header class="bg-secondary p-4 mb-3">
+    
         <?php if( isset($_SESSION['user']) ): ?>
             <?php if( unserialize($_SESSION['user'])->getRole() == "ADMIN" ): ?>
                 <!-- ADMIN -->
@@ -17,11 +18,11 @@
                 <a href="?action=gestionUtilisateur" class="btn btn-info">Gestion des Utilisateurs</a>
             <?php endif; ?>
             <!-- CLIENT -->
-            <a href="?action=reservation" class="btn btn-success">Réservation de véhicules</a>
+            
             <a href="?action=mesReservation" class="btn btn-success">Mes réservation</a>
             <a href="?action=logout" class="btn btn-danger" style="float: right;">Logout</a>
         <?php endif; ?>
-
+        <a href="?action=reservation" class="btn btn-success">Réservation de véhicules</a>
         <p hidden><?= isset($_SESSION["user"]) ? unserialize($_SESSION["user"])->getPrenom() : '' ?></p>
 
     </header>
